@@ -5,14 +5,8 @@ from sklearn.metrics import accuracy_score, f1_score
 # Configuration de la page
 st.set_page_config(page_title="Leaderboard AI Club", page_icon="🤖")
 
-@st.cache_data
-def load_true_data(file_path):
-    # On suppose que le fichier contient une colonne cible (ex: 'target')
-    return pd.read_csv(file_path)
-
-# Chargement des données de référence (Y_test)
 try:
-    y_true_df = load_true_data('Y_test.csv')
+    y_true_df = pd.read_csv('Y_test.csv')
     # Extraction de la série si c'est un DataFrame à une colonne
     y_true = y_true_df.iloc[:, 0] 
 except FileNotFoundError:
